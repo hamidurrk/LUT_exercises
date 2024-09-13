@@ -1,0 +1,7 @@
+Make a Python program that asks for three numbers and calculates their average. The numbers 
+which are inputted can be integers or floats. After this, the program prints 
+1. the sum of the given numbers. 
+2. the average of the given numbers rounded to 3 decimal places. 
+3. the average of the given numbers rounded to the closest integer. 
+4. the average of the given numbers as an integer without the decimal part (hint: use int 
+function).
