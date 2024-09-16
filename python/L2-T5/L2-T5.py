@@ -24,7 +24,7 @@ avg_rounded_to_closest_int = round(avg) # Rounding to the closest integer
 avg_wo_decimal = int(avg)  # Just removing the decimal part
 
 # Printing the outputs
-print(f"\nSum of the numbers: {sum}")
+print(f"Sum of the numbers: {sum}")
 print(f"Average of the numbers (rounded to 3 decimal places): {avg_rounded_to_3_decimal_places}")
 print(f"Average of the numbers (rounded to the closest integer): {avg_rounded_to_closest_int}")
 print(f"Average of the numbers as an integer without the decimal part: {avg_wo_decimal}")
