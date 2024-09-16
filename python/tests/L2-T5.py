@@ -1,8 +1,8 @@
 print("This program calculates the average of the 3 numbers you enter.\nThe numbers can be int's or float's.")
 
-first_number = float(input("Enter the first number:"))
-second_number = float(input("Enter the second number:"))
-third_number = float(input("Enter the third number:"))
+first_number = float(input("Enter the first number:\n"))
+second_number = float(input("Enter the second number:\n"))
+third_number = float(input("Enter the third number:\n"))
 
 sum = first_number + second_number + third_number
 
