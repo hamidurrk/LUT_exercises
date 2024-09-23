@@ -1,0 +1,13 @@
+In this exercise, we will perform simple operations on strings. 
+1. First the program asks for two words. Then, it compares these words according to the string 
+comparison operation and prints the strings according to the order (see example runs). If the 
+words are the same, print: “The words are the same.”. Remember that strings are compared in 
+Python using the same operators as numbers. 
+2. After this, your program should test whether the given words contain the character 'z'. If the 
+letter 'z' is found in either of the words (or both!), the program outputs: "The <word> contains 
+'z'." If the letter is not found, the program prints: "The letter 'z' was not found in either of the 
+words." 
+3. Finally, your program should ask for a third string and determine whether it is a palindrome. 
+Palindrome is a word that can be read in the same way from beginning to end as from end to 
+beginning. If the given word is palindrome, print "The <word> is a palindrome." If not, print 
+"The <word> is not a palindrome."
