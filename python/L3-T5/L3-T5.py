@@ -17,13 +17,11 @@ else:
     print(f"'{word2}' comes earlier in order than '{word1}'.")
 
 # Checking if the words contain the letter 'z'
-if("z" in word1 and "z" in word2):
-    print("Both words contain the letter 'z'.")
-elif("z" in word1):
-    print(f"'{word1}' contains the letter 'z'.")
-elif("z" in word2):
-    print(f"'{word2}' contains the letter 'z'")
-else:
+if("z" in word1):
+    print(f"Letter 'z' is found in word '{word1}'.")
+if("z" in word2):
+    print(f"Letter 'z' is found in word '{word2}'.")
+if ("z" not in word1 and "z" not in word2):
     print("The letter 'z' was not found in either of the words.")
 
 word3 = input("Enter a word to be tested:\n")
