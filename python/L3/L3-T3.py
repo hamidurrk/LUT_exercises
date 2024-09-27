@@ -19,6 +19,6 @@ elif (option == "4"):
     if (num2 == 0):
          print("Zero cannot be used as a divisor.")
     else:
-        template(option=option, num1=num1, num2=num2, sign="+", result=round(num1/num2, 2))
+        template(option=option, num1=num1, num2=num2, sign="/", result=round(num1/num2, 2))
 else:
     print("The operation was not recognized.")
