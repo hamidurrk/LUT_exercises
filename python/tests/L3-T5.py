@@ -12,9 +12,21 @@ else:
     print(f"'{word_2}' comes earlier in order than '{word_1}'.")
 
 # 'z' check
-if("z" in word_1):
+
+def z_checker(word):
+    count = 0
+    for x in word:
+        if x == "z":
+            count += 1
+    if count > 0:
+        return True
+    return False
+
+# print(f"{z_checker(word_1)}, and {z_checker(word_2)}")
+
+if(z_checker(word_1)):
     print(f"Letter 'z' is found in word '{word_1}'.")
-if("z" in word_2):
+if(z_checker(word_2)):
     print(f"Letter 'z' is found in word '{word_2}'.")
 if ("z" not in word_1 and "z" not in word_2):
     print("The letter 'z' was not found in either of the words.")
