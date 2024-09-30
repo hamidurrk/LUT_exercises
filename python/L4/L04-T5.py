@@ -1,3 +1,8 @@
+# L04-T4: Menu-based program, continuing from exercise L03-T3 
+#
+# Submitted by: Md Hamidur Rahman Khan
+#
+
 # Declaring variables without assigning values
 num1: int
 num2: int
@@ -8,7 +13,7 @@ def template(option, num1, num2, sign, result):
 
 # Dictionary of operations
 operations = {
-    "1": "Enter Numbers",
+    "1": "Enter numbers",
     "2": "Sum",
     "3": "Subtract",
     "4": "Multiplication",
@@ -45,7 +50,8 @@ while True:
             else:
                 template(option=operations[option], num1=num1, num2=num2, sign="/", result=round(num1/num2, 2))
         elif (option == "6"):       # Power of
-            template(option=operations[option], num1=num1, num2=f"\b{num2}", sign="\b**", result=num1**num2)
+            # template(option=operations[option], num1=num1, num2=f"\b{num2}", sign="\b**", result=num1**num2)
+            print(f"Power of {num1}**{num2} = {num1**num2}")
         else:
             print("Unknown selection, try again.")
     except NameError:
