@@ -1,4 +1,4 @@
-# L04-T4: Menu-based program, continuing from exercise L03-T3 
+# L04-T5: Menu-based program, continuing from exercise L03-T3 
 #
 # Submitted by: Md Hamidur Rahman Khan
 #
