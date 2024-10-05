@@ -7,7 +7,6 @@ a = int(input("Enter a:\n"))
 b = int(input("Enter b:\n"))
 
 while True:
-    print(f"a: {a} b: {b}")
     a *= 2
     b += 100
     if a > 1000 or b > 1000:    
@@ -16,3 +15,4 @@ while True:
         if b > 1000:
             print("b exceeded 1000")
         break
+    print(f"a: {a} b: {b}")
