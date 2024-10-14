@@ -24,12 +24,6 @@ def remove(list : list):
             print("Invalid index.")
     else:
         print("Your shopping list is already empty.")
-    
-def functions_option(value : str):
-    for key, val in functions.items():
-        if val == value:
-            return str(key)
-    return None
 
 def menu():
     print(f"Your shopping list contains the following products:\n{shopping_list}")
@@ -40,6 +34,7 @@ def menu():
         option = functions[input("Your choice:\n")]
     except KeyError:
         print("Unknown selection.")
+        return None
     return option
 
 def main():
@@ -50,34 +45,11 @@ def main():
             case "Add":
                 add(shopping_list)
             case "Remove":
-                try:
-                    remove(shopping_list)
-                except Exception as e:
-                    print(e)
+                remove(shopping_list)
             case "End":
                 print(f"You are going to buy the following products:\n{shopping_list}")
                 break
-                
+        print("")
         
-        
-        
-        
-        
-        
-        
-        # if option == functions_option("Add"):
-        #     add(shopping_list)
-        # elif option == functions_option("Remove"):
-        #     if not len(shopping_list) < 1:
-        #         remove(shopping_list)
-        #     else:
-        #         print("Your shopping list is already empty.")
-        # elif option == functions_option("End"):
-        #     print(f"You are going to buy the following products:\n{shopping_list}")
-        #     break
-        # else:
-        #     print("Unknown selection.")
-        # print("")
-            
 if __name__ == "__main__":
     main()
