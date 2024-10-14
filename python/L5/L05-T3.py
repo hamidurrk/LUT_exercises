@@ -8,13 +8,14 @@ def isContaining(string : str, container: str):
     for x in range(len(container)):
         for y in range(len(string)):
             if container[x] == string[y]:
-                if not string_index_match_list or y == string_index_match_list[-1] + 1:
-                    container_index_match_list.append(x)
-                    string_index_match_list.append(y)
-                    print(x, container[x], string[y], y)
-    # print(string_index_match_list)
-    # print(container_index_match_list)
+                # if not string_index_match_list or y == string_index_match_list[-1] + 1:
+                container_index_match_list.append(x)
+                string_index_match_list.append(y)
+                print(x, container[x], string[y], y)
+    print(string_index_match_list)
+    print(container_index_match_list)
     match_count = 0
+    
     if all(container_index_match_list[i] - container_index_match_list[i-1] == 1 for i in range(1, len(container_index_match_list))) and len(container_index_match_list) == len(string):
         for x in range(len(string_index_match_list)):
             # print(len(string_index_match_list))
@@ -27,7 +28,7 @@ def isContaining(string : str, container: str):
                     # print(string_index_match_list[x+i], count)
                     if x+i < len(string_index_match_list):    
                         if string_index_match_list[x+i] == count:
-                            # print(count, string_index_match_list[x+i])
+                            print(count, string_index_match_list[x+i])
                             match_count += 1
                     count += 1
         print(match_count)
@@ -40,8 +41,11 @@ def isContaining(string : str, container: str):
         
 # print(isContaining("tea", "teat"))
 
-string_input = input("Enter the first string:\n")
-container_input = input("Enter the second string:\n")
+string_input = "part"
+container_input = "apartment"
+
+# string_input = input("Enter the first string:\n")
+# container_input = input("Enter the second string:\n")
 
 FOUND = isContaining(string_input, container_input)
 

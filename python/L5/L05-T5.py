@@ -32,10 +32,10 @@ def enter_integer(text : str) -> int:
     return int(input(text))
 
 def sum(value1: int, value2: int) -> str:
-    return str(value1 + value2)
-
+    print(f"Sum {value1} + {value2} = {value1+value2}")
+ 
 def subtract(value1: int, value2: int) -> str:
-    return str(value1 - value2)
+    print(f"Subtract {value1} - {value2} = {value1-value2}")
 
 def multiplication(value1: int, value2: int) -> str:
     return str(value1 * value2)
