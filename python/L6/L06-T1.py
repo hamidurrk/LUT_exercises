@@ -5,8 +5,11 @@
 
 from L6E4 import input_integers
 
+def reverse_list(int_list):
+    rev_list = []
+    for _ in range(len(int_list)):
+        rev_list.append(int_list.pop())
+    return rev_list   
+
 int_list = input_integers()
-rev_list = []
-for _ in range(len(int_list)):
-    rev_list.append(int_list.pop())
-print(f"Reversed list: {rev_list}")
+print(f"Reversed list: {reverse_list(int_list)}")
