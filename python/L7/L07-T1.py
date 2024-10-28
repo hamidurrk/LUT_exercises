@@ -4,7 +4,7 @@
 #
 
 def file_write(name: str):
-    file = open(name, mode="w")
+    file = open(name, "w")
     while True:
         input_string = input("Enter a name to save to the file (0 to stop):\n")
         if input_string == "0":
@@ -13,8 +13,8 @@ def file_write(name: str):
     file.close()
 
 def file_read(name: str):
-    file = open(name, mode="r")
-    print(f"The following names are stored in the file '{name}'")
+    file = open(name, "r")
+    print(f"The following names are stored in the file '{name}':")
     for line in file.readlines():
         print(line.strip())
     file.close()
@@ -26,4 +26,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # file_read("Exercise1.txt")
