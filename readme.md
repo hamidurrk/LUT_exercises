@@ -13,7 +13,7 @@ This repository contains the programming exercises of my university lectures.
 * [L4](python/L4): Mastering loops, including for and while loops.
 * [L5](python/L5): Exploring functions, both built-in and self-defined.
 * [L6](python/L6): Introduction to object-oriented programming and working with lists and matrices.
-* [L7](python): Handling text files, including reading, writing, and appending.
+* [L7](python/L7): Handling text files, including reading, writing, and appending.
 
 
 **Getting Started**
