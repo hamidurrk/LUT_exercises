@@ -15,6 +15,7 @@ This repository contains the programming exercises of my university lectures.
 * [L6](python/L6): Introduction to object-oriented programming and working with lists and matrices.
 * [L7](python/L7): Handling text files, including reading, writing, and appending.
 * [L8](python/L8): Learning to utilize libraries like math, random, fraction and handling errors.
+* [L9](python/L9): Working with exception handling.
 
 
 **Getting Started**
