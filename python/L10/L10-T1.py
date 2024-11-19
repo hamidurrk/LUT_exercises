@@ -4,9 +4,9 @@
 #
 
 data_types = {
-    "name": str,
-    "workplace": str,
-    "age": int,
+    "Name": str,
+    "Workplace": str,
+    "Age": int,
     }
 
 def get_input_by_type(type_: type, prompt: str):
@@ -19,14 +19,18 @@ def get_input_by_type(type_: type, prompt: str):
 def employee_dictionary(dict_list: list):
     employee = {}
     for data, type in data_types.items():
-        value = get_input_by_type(type, f"Enter worker's {data}:\n")
+        value = get_input_by_type(type, f"Enter worker's {data.lower()}:\n")
         employee[data] = value
     dict_list.append(employee)
 
 def print_work_info(dict_list: list):
     print("List of Employees:")
     for employee in dict_list:
-        print(f"Name: {employee['name']}, Workplace: {employee['workplace']}, Age: {employee['age']}")
+        for data in data_types.keys():
+            end = ", "
+            if data == list(data_types.keys())[-1]:
+                end = "\n"
+            print(f"{data}: {employee[data]}", end=end)
 
 def main():
     dict_list = []

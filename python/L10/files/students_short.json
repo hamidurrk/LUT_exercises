@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "name": "John Smith",
+        "age": 20,
+        "grade": "A",
+        "courses": ["Math", "Physics", "Chemistry"]
+    },
+    {
+        "id": 2,
+        "name": "Jane Doe",
+        "age": 19,
+        "grade": "B",
+        "courses": ["History", "English", "Biology"]
+    },
+    {
+        "id": 3,
+        "name": "David Johnson",
+        "age": 21,
+        "grade": "C",
+        "courses": ["Computer Science", "Statistics", "Economics"]
+    },
+    {
+        "id": 4,
+        "name": "Emily Wilson",
+        "age": 18,
+        "grade": "A",
+        "courses": ["Art", "Music", "Drama"]
+    },
+    {
+        "id": 5,
+        "name": "Michael Brown",
+        "age": 22,
+        "grade": "B",
+        "courses": ["Physics", "Chemistry", "Computer Science"]
+    },
+    {
+        "id": 6,
+        "name": "Sophia Anderson",
+        "age": 20,
+        "grade": "A",
+        "courses": ["Math", "Statistics", "Economics"]
+    },
+    {
+        "id": 7,
+        "name": "Daniel Lee",
+        "age": 19,
+        "grade": "C",
+        "courses": ["History", "English", "Biology"]
+    },
+    {
+        "id": 8,
+        "name": "Olivia Davis",
+        "age": 18,
+        "grade": "A",
+        "courses": ["Art", "Music", "Drama"]
+    },
+    {
+        "id": 9,
+        "name": "James Wilson",
+        "age": 21,
+        "grade": "B",
+        "courses": ["Math", "Physics", "Chemistry"]
+    },
+    {
+        "id": 10,
+        "name": "Ava Martin",
+        "age": 22,
+        "grade": "A",
+        "courses": ["Computer Science", "Statistics", "Economics"]
+    },
+    {
+        "id": 11,
+        "name": "Liam Brown",
+        "age": 19,
+        "grade": "C",
+        "courses": ["History", "English", "Biology"]
+    },
+    {
+        "id": 12,
+        "name": "Olivia Johnson",
+        "age": 20,
+        "grade": "A",
+        "courses": ["Art", "Music", "Drama"]
+    },
+    {
+        "id": 13,
+        "name": "Ethan Davis",
+        "age": 18,
+        "grade": "B",
+        "courses": ["Math", "Physics", "Chemistry"]
+    },
+    {
+        "id": 14,
+        "name": "Mia Wilson",
+        "age": 21,
+        "grade": "A",
+        "courses": ["Computer Science", "Statistics", "Economics"]
+    },
+    {
+        "id": 15,
+        "name": "William Anderson",
+        "age": 22,
+        "grade": "C",
+        "courses": ["History", "English", "Biology"]
+    },
+    {
+        "id": 16,
+        "name": "Sofia Martinez",
+        "age": 19,
+        "grade": "A",
+        "courses": ["Art", "Music", "Drama"]
+    },
+    {
+        "id": 17,
+        "name": "Alexander Taylor",
+        "age": 20,
+        "grade": "B",
+        "courses": ["Math", "Physics", "Chemistry"]
+    },
+    {
+        "id": 18,
+        "name": "Chloe Smith",
+        "age": 19,
+        "grade": "A",
+        "courses": ["Computer Science", "Statistics", "Economics"]
+    },
+    {
+        "id": 19,
+        "name": "Benjamin Lee",
+        "age": 21,
+        "grade": "C",
+        "courses": ["History", "English", "Biology"]
+    },
+    {
+        "id": 20,
+        "name": "Ava Hernandez",
+        "age": 18,
+        "grade": "A",
+        "courses": ["Art", "Music", "Drama"]
+    }
+]
