@@ -1,85 +1,109 @@
 import json
 
-def menu():
-    print("What do you want to do?")
-    print("1) Print students by age")
-    print("2) Print students based on the course they are taking")
-    print("3) Print students whose first names ends with the letter \"a\"")
-    print("0) Stop the program")
+menu_options = {
+    "1": "Print students by age",
+    "2": "Print students based on the course they are taking",
+    "3": "Print students whose first names ends with the letter \"a\"",
+    "0": "Stop the program"
+}
+
+def get_input_by_type(type_: type, prompt: str):
+    try:
+        return type_(input(prompt))
+    except:
+        if type_ == int:
+            print("Invalid input. Please enter a number.")
+        elif type_ == str:
+            print("Invalid input. Please enter a string.")
+        else:
+            print("Invalid input. Please enter a valid value.")
+        return None
+
+def print_by_column(student_list, *args):
+    for student in student_list:
+        count = 1
+        for arg in args:
+            if arg == "id":
+                info_specifier = "Student ID"
+            elif arg == "courses":
+                info_specifier = "Course"
+            else:
+                info_specifier = arg.capitalize()
+            if count == len(args):
+                print(f"{info_specifier}: {student[arg]}", end="\n")
+            else:
+                print(f"{info_specifier}: {student[arg]}", end=", ")
+            count += 1
+
+def filter_students_by_age(student_list, age):
+    return [student for student in student_list if student["age"] == age]
+
+def filter_students_by_course(student_list, course):
+    return [student for student in student_list if course in student["courses"]]
+
+def filter_students_by_first_name_last_char(student_list, char="a"):
+    return [student for student in student_list if student["name"].split()[0][-1] == char]
+
+def print_prompt_and_return_input(prompt: str, data):
+    print(prompt)
+    for index, item in enumerate(data):
+        print(f"{index+1}) {item}")
+    selection = get_input_by_type(int, "Enter your selection:\n")
+    if 1 <= selection <= len(data):
+        return data[selection-1]
+    else:
+        print("Invalid selection.")
+        return None
 
 def print_students_by_age(student_list):
     ages = [19,20,21,22]
-
-    index = 1
-    print("Select the ages of the students:")
-    for age in ages:
-        print(f"{index}) {age}")
-        index += 1
-    try:
-        selection = int(input("Enter your selection:\n"))
-        if 1 <= selection <= len(ages):
-            selected_age = ages[selection-1]
-            for student in student_list:
-                if student["age"] == selected_age:
-                    print(f"Student ID: {student['id']}, Name: {student['name']}, Age: {student['age']}")
-        else:
-            print("Invalid selection.")
-    except:
-        print("Invalid input.")
+    prompted_age = print_prompt_and_return_input("Select the age:", ages)
+    if prompted_age != None:
+        print_by_column(filter_students_by_age(student_list, prompted_age), "id", "name", "age")
 
 def print_students_by_course(student_list):
     courses = ["Computer Science", "History", "Math", "Art"]
-
-    index = 1
-    print("Select the course:")
-    for course in courses:
-        print(f"{index}) {course}")
-        index += 1
-    try:
-        selection = int(input("Enter your selection:\n"))
-        if 1 <= selection <= len(courses):
-            selected_course = courses[selection-1]
-            for student in student_list:
-                if selected_course in student["courses"]:
-                        print(f"Student ID: {student['id']}, Name: {student['name']}, Course: {student['courses']}")
-        else:
-            print("Invalid selection.")
-    except:
-        print("Invalid input.") 
+    prompted_course = print_prompt_and_return_input("Select the course:", courses)
+    if prompted_course != None:
+        print_by_column(filter_students_by_course(student_list, prompted_course), "id", "name", "courses")
 
 def print_students_name(student_list):
     print("Students whose name end with 'a':")
-    for student in student_list:
-        first_name = student["name"].split()[0]
-        if first_name[-1] == 'a':
-            print(f"Student ID: {student['id']}, Name: {student['name']}")
+    print_by_column(filter_students_by_first_name_last_char(student_list), "id", "name")
+
+def menu():
+    print("What do you want to do?")
+    for key, value in menu_options.items():
+        print(f"{key}) {value}")
+    try:
+        option_choice = int(input("Enter your choice:\n"))
+        option = menu_options[str(option_choice)]
+    except:
+        option = "Invalid"
+    return option
 
 def main():
     try:
-        file = open("students.json", mode = 'r')
+        file = open("./python/L10/files/students_short.json", mode = 'r')
         student_list = json.load(file)
-        #print(student_list)
     except:
         print("The file 'students.json' could not be found.")
         return
 
     while True:
-        menu()
-        try:
-            choice = int(input("Enter your choice:\n")) 
-        except:
-            pass
-        if choice == 1:
-            print_students_by_age(student_list)
-        elif choice == 2:
-            print_students_by_course(student_list)
-        elif choice == 3:
-            print_students_name(student_list)
-        elif choice == 0:
-            print("See you again!")
-            break
-        else:
-            print("Invalid choice. Please try again.")
+        option = menu()
+        match option:
+            case "Print students by age":
+                print_students_by_age(student_list)
+            case "Print students based on the course they are taking":
+                print_students_by_course(student_list)
+            case "Print students whose first names ends with the letter \"a\"":
+                print_students_name(student_list)
+            case "Invalid":
+                print("Invalid choice. Please try again.")
+            case "Stop the program":
+                print("See you again!")
+                break
         print("")
 main()
 
