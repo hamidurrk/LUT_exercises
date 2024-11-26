@@ -16,6 +16,8 @@ This repository contains the programming exercises of my university lectures.
 * [L7](python/L7): Handling text files, including reading, writing, and appending.
 * [L8](python/L8): Learning to utilize libraries like math, random, fraction and handling errors.
 * [L9](python/L9): Working with exception handling.
+* [L10](python/L10): Introduction to dictionaries, csv, json and working with modules.
+* [L11](python/L11): Exploring tuples, sets, and numpy arrays.
 
 
 **Getting Started**
