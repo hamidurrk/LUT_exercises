@@ -1,3 +1,8 @@
+# L12-T1: Rock-Paper-Scissors-Lizard-Spock
+#
+# Written by: Md Hamidur Rahman Khan
+#
+
 '''
 Scissors cuts Paper
 Paper covers Rock
@@ -12,19 +17,6 @@ Rock crushes Scissors
 '''
 
 import random
-
-rules_statement = [
-    "Scissors cuts Paper",
-    "Paper covers Rock",
-    "Rock crushes Lizard",
-    "Lizard poisons Spock",
-    "Spock smashes Scissors",
-    "Scissors decapitate Lizard",
-    "Lizard eats Paper",
-    "Paper disproves Spock",
-    "Spock vaporizes Rock",
-    "Rock crushes Scissors"
-]
 
 class GameGraph():
     def __init__(self, rules_statement):
@@ -91,7 +83,7 @@ class Game():
             "Spock vaporizes Rock",
             "Rock crushes Scissors"
         ]
-        self.G = GameGraph(rules_statement)
+        self.G = GameGraph(self.rules_statement)
         print("Welcome to Rock-Paper-Scissors-Lizard-Spock!")
         
     def start(self):
@@ -99,23 +91,28 @@ class Game():
             user_input = input("Choose Rock, Paper, Scissors, Lizard, or Spock (type 'exit' to quit): ").capitalize()
             if user_input == "Exit":
                 break
-            if user_input not in self.G.options:
-                print("Invalid input. Please try again.")
-                continue
-            else:
+            if user_input in self.G.options:
                 computer_input = random.choice(list(self.G.options))
                 print(f"Computer chose {computer_input}.")
-                
-            print(user_input)
+                if user_input == computer_input:
+                    print("Tie!")
+                else:
+                    if self.G.has_successor(user_input, computer_input):
+                        print(f"You won! {user_input} {self.G.search_rule(user_input, computer_input)} {computer_input}.")
+                    else:
+                        print(f"You lost! {computer_input} {self.G.search_rule(computer_input, user_input)} {user_input}.")
+            else:            
+                print("Invalid input. Please try again.")
+        
             while True:
-                user_continuation_input =  input("Do you want to play again? (yes/no): ").capitalize()
-                if user_continuation_input == "No":
+                user_continuation_input =  input("Do you want to play again? (yes/no): ").strip().lower()
+                if user_continuation_input in ["no", "n"]:
+                    print("Thanks for playing! Goodbye!")
                     return
-                elif user_continuation_input == "Yes":
+                elif user_continuation_input in ["yes", "y"]:
                     break
                 else:
                     print("Invalid input. Please try again.")
-                    continue
-        
+                    
 Game().start()
 
