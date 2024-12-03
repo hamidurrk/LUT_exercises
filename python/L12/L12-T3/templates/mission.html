@@ -30,6 +30,11 @@
                 margin-top: 20px;
             }
 
+            .list-group-item {
+                display: flex;
+                justify-content: space-between;
+            }
+
             body {
                 background-color: #f8f9fa; /* Light gray background */
             }
@@ -73,7 +78,16 @@
                     <div class="col-md-6">
                         <h2>Crew Members</h2>
                         <ul class="list-group">
-                           
+                           {% for crew in mission.crew %}
+                            <li class="list-group-item">
+                                <p class="m-0"><strong>Role: </strong>{{ crew.role }}</p>
+                                <div class="text-center">
+                                    <a href="/crew/{{ crew.crew }}" class="btn btn-sm btn-primary"
+                                        >View Details</a
+                                    >
+                                </div>
+                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
 

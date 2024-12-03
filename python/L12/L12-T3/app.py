@@ -1,14 +1,17 @@
 from flask import Flask, render_template
-import requests
+import requests, json
 
 app = Flask(__name__)
-
+launch_url = "https://api.spacexdata.com/v5/launches/"
+crew_url = "https://api.spacexdata.com/v4/crew/"
 
 def fetch_spacex_data():
-    # TODO: 1. Fetch data from SpaceX API
-
-    # TODO: 2. Filter out the missions where we have crew included
+    data = requests.get(launch_url).json()
+    
     crewed_missions = []
+    for launch in data:
+        if launch["crew"]:
+            crewed_missions.append(launch)
     return crewed_missions
 
 
@@ -20,11 +23,8 @@ def index():
 
 @app.route("/mission/<mission_id>")
 def mission(mission_id):
-    # TODO: 1. Implement fetching the missions from v5/launches
-
-    # TODO: 2. Implement finding the mission by its ID
-    # Find the mission by its ID
-    mission_details = None
+    url = launch_url + mission_id
+    mission_details = requests.get(url).json()
 
     if not mission_details:
         return f"Mission with ID {mission_id} not found.", 404
@@ -34,8 +34,8 @@ def mission(mission_id):
 
 @app.route("/crew/<crew_id>")
 def crew(crew_id):
-    # TODO: 3. Implement the logic for getting crew member details
-    crew_member = None
+    url = crew_url + crew_id
+    crew_member = requests.get(url).json()
 
     if not crew_member:
         return f"Crew member with ID {crew_id} not found.", 404
