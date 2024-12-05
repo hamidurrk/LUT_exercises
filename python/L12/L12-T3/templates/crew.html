@@ -12,7 +12,50 @@
     <body>
         <div class="container my-5">
             <!-- Crew Member Card -->
-            <p>Empty for now....</p>
+            <div class="floating-card">
+                <!-- Mission Header with Badge -->
+                <div class="floating-card col-md-6 mx-auto pt-4 d-flex flex-column align-items-center border-5 shadow-sm">
+                    <div class="col-md-4 text-center px-4">
+                        {% if crew.image %}
+                        <img
+                            src="{{ url_for('static', filename='placeholder-person.png') }}"
+                            alt="Mission Badge"
+                            class="img-fluid rounded-circle shadow-sm"
+                        />
+                        {% else %}
+                        <img
+                            src="{{ url_for('static', filename='placeholder-person.png') }}"
+                            alt="Mission Badge"
+                            class="img-fluid rounded shadow-sm"
+                        />
+                        {% endif %} 
+                    </div>
+                    <div class="crew-card-body w-100 text-center p-4">
+                        <h1 class="display-6" ><strong>{{ crew.name }}</string></h1>
+                        <p>
+                            <span
+                                class="badge {{ 'bg-success' if crew.status == 'active' else 'bg-danger' }} px-3 py-2"
+                            >
+                                {{ "Active ★" if crew.status else "Inactive" }}
+                            </span>
+                        </p>
+                        <p><strong>Agency:</strong> {{ crew.agency }} </p>
+                        <p><strong>Role:</strong> {{crew.role}} </p>
+                        <p><strong>Image:</strong>
+                            {% if crew.image %}
+                            <a href="{{ crew.image }}" target="_blank">View Crew Member Image</a>
+                            {% else %}
+                            <p class="text-muted">No image available</p>
+                            {% endif %}
+                        </p>
+                        <div class="text-center">
+                            <a href="{{ crew.wikipedia }}" class="btn btn-sm btn-primary px-4 py-2"
+                                ><strong>Learn More on Wikipedia</strong></a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Back Button -->
             <div class="text-center mt-4">
                 <a href="/" class="btn btn-secondary">Back to Missions</a>

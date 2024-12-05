@@ -82,7 +82,7 @@
                             <li class="list-group-item">
                                 <p class="m-0"><strong>Role: </strong>{{ crew.role }}</p>
                                 <div class="text-center">
-                                    <a href="/crew/{{ crew.crew }}" class="btn btn-sm btn-primary"
+                                    <a href="{{ url_for('crew', crew_id=crew.crew, role=crew.role)  }}" class="btn btn-sm btn-primary"
                                         >View Details</a
                                     >
                                 </div>
@@ -90,10 +90,48 @@
                             {% endfor %}
                         </ul>
                     </div>
+                    <div class="col-md-6">
+                        <h2>Media Links</h2>
+                        <ul class="list-group">
+                            {% if mission.links.presskit %}
+                            <li class="list-group-item">
+                                <div class="text-center">
+                                    <a href="{{ mission.links.presskit }}" 
+                                        >Presskit</a
+                                    >
+                                </div>
+                            </li>
+                            {% endif %}
+                            {% if mission.links.webcast %}
+                            <li class="list-group-item">
+                                <div class="text-center">
+                                    <a href="{{ mission.links.webcast }}" 
+                                        >Webcast</a
+                                    >
+                                </div>
+                            </li>
+                            {% endif %}
+                            {% if mission.links.article %}
+                            <li class="list-group-item">
+                                <div class="text-center">
+                                    <a href="{{ mission.links.article }}" 
+                                        >Article</a
+                                    >
+                                </div>
+                            </li>
+                            {% endif %}
+                            {% if mission.links.wikipedia %}
+                            <li class="list-group-item">
+                                <div class="text-center">
+                                    <a href="{{ mission.links.wikipedia }}" 
+                                        >Wikipedia</a
+                                    >
+                                </div>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
 
-                    <!-- Media Links should go here -->
-
-                <!-- Back Button -->
                 <div class="text-center mt-4">
                     <a href="/" class="btn btn-lg btn-secondary"
                         >Back to Missions</a

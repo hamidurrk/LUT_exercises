@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests, json
 
 app = Flask(__name__)
@@ -34,9 +34,10 @@ def mission(mission_id):
 
 @app.route("/crew/<crew_id>")
 def crew(crew_id):
+    role = request.args.get('role')
     url = crew_url + crew_id
     crew_member = requests.get(url).json()
-
+    crew_member["role"] = role
     if not crew_member:
         return f"Crew member with ID {crew_id} not found.", 404
 
