@@ -93,42 +93,15 @@
                     <div class="col-md-6">
                         <h2>Media Links</h2>
                         <ul class="list-group">
-                            {% if mission.links.presskit %}
-                            <li class="list-group-item">
-                                <div class="text-center">
-                                    <a href="{{ mission.links.presskit }}" 
-                                        >Presskit</a
-                                    >
-                                </div>
-                            </li>
-                            {% endif %}
-                            {% if mission.links.webcast %}
-                            <li class="list-group-item">
-                                <div class="text-center">
-                                    <a href="{{ mission.links.webcast }}" 
-                                        >Webcast</a
-                                    >
-                                </div>
-                            </li>
-                            {% endif %}
-                            {% if mission.links.article %}
-                            <li class="list-group-item">
-                                <div class="text-center">
-                                    <a href="{{ mission.links.article }}" 
-                                        >Article</a
-                                    >
-                                </div>
-                            </li>
-                            {% endif %}
-                            {% if mission.links.wikipedia %}
-                            <li class="list-group-item">
-                                <div class="text-center">
-                                    <a href="{{ mission.links.wikipedia }}" 
-                                        >Wikipedia</a
-                                    >
-                                </div>
-                            </li>
-                            {% endif %}
+                            {% for link_name, link_url in mission.links.items() %}
+                                {% if link_name in ['presskit', 'webcast', 'article', 'wikipedia'] and link_url %}
+                                <li class="list-group-item">
+                                    <div class="text-center">
+                                        <a href="{{ link_url }}">{{ link_name|capitalize }}</a>
+                                    </div>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </div>
 

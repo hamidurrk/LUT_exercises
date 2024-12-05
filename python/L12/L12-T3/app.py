@@ -38,6 +38,11 @@ def crew(crew_id):
     url = crew_url + crew_id
     crew_member = requests.get(url).json()
     crew_member["role"] = role
+    if crew_member["image"]:
+        original_image_url = crew_member["image"]
+        tag = original_image_url.split('/')[-1].split('.')[0]
+        crew_member["tag"] = tag
+    
     if not crew_member:
         return f"Crew member with ID {crew_id} not found.", 404
 
