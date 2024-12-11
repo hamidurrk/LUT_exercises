@@ -112,7 +112,7 @@ class RickAndMortyCharacter:
             i += 1
         return line
     
-    def print_table(self, data, title=None,headers=None):
+    def print_table(self, data, title=None, headers=None):
         if headers:
             data.insert(0, headers)
         max_cols = max(len(row) for row in data)
