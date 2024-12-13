@@ -5,7 +5,7 @@
 
 import time
 
-def fibonacci_improved(n, depth=2, a=1, b=0, indent="", print_tree=False):
+def fibonacci_improved(n, depth=2, a=1, b=0, indent="", print_tree=True):
     if n == 0:
         print(f"{indent}fibonacci(0) -> 0") if print_tree else None
         return 0

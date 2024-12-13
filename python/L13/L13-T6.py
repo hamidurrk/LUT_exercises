@@ -12,7 +12,6 @@ def read_words(file_name: str) -> list:
     file.close()
     return data
 
-
 def insertionSort(li):
     for i in range(1, len(li)):
         key = li[i]
@@ -22,7 +21,6 @@ def insertionSort(li):
             li[j+1] = li[j]
             j = j - 1
         li[j+1] = key    # put key into right position
-
 
 def quicksort(li):
     if len(li) <= 1:  # base case

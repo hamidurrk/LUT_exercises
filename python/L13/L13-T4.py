@@ -4,6 +4,8 @@
 #
 
 import time
+import matplotlib.pyplot as plt
+from tqdm import tqdm
 
 def fibonacci(n, indent="", print_tree=True):
     if n == 0:
@@ -22,14 +24,32 @@ def fibonacci(n, indent="", print_tree=True):
         print(f"{indent}fibonacci({n}) -> {result}") if print_tree else None
         return result
 
+def test_and_plot(func, iter):
+    n = []
+    t = []
+    for i in tqdm(range(iter), f"Computing {func.__name__}"):
+        n.append(i)
+        time_start = time.time()
+        func(i, print_tree=False)
+        time_end = time.time()
+        t.append(time_end - time_start)
 
-def main(SHOW_TIME = False):
+    plt.plot(n, t, label=func.__name__)
+    plt.xlabel('n')
+    plt.ylabel('Time (seconds)')
+    plt.title('Function Performance Graph')
+    plt.legend()
+    plt.show()
+
+def main(SHOW_TIME = False, print_tree = True):
     n = 5
     time_start = time.time()
-    f_num = fibonacci(n, print_tree=False)
+    f_num = fibonacci(n, print_tree=print_tree)
     time_end = time.time()
     print(f"Fibonacci number at position {n}: {f_num}")
     print(f"Time taken for recursive approach: {time_end - time_start:.10f} seconds") if SHOW_TIME else None
+    
+    test_and_plot(fibonacci, 35)
     
 main(SHOW_TIME = True)
 
