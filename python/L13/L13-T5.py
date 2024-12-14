@@ -23,7 +23,7 @@ def fibonacci_improved(n, depth=2, a=1, b=0, indent="", print_tree=True):
         return result
 
 def main(SHOW_TIME = True):
-    n = 5
+    n = 45
     time_start = time.time()
     f_num = fibonacci_improved(n)
     time_end = time.time()

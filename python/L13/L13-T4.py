@@ -42,7 +42,7 @@ def test_and_plot(func, iter):
     plt.show()
 
 def main(SHOW_TIME = False, print_tree = True):
-    n = 5
+    n = 30
     time_start = time.time()
     f_num = fibonacci(n, print_tree=print_tree)
     time_end = time.time()
