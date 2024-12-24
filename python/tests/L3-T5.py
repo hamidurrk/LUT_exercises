@@ -1,17 +1,13 @@
 word_1 = input("Enter word 1:\n")
 word_2 = input("Enter word 2:\n")
 
-# Equality check
 if(word_1 == word_2):
     print("The words are the same.")
 
-# Order check
 elif(word_1 < word_2):
     print(f"'{word_1}' comes earlier in order than '{word_2}'.")
 else:
     print(f"'{word_2}' comes earlier in order than '{word_1}'.")
-
-# 'z' check
 
 def z_checker(word):
     count = 0
