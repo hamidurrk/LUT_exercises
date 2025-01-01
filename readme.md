@@ -18,6 +18,9 @@ This repository contains the programming exercises of my university lectures.
 * [L9](python/L9): Working with exception handling.
 * [L10](python/L10): Introduction to dictionaries, csv, json and working with modules.
 * [L11](python/L11): Exploring tuples, sets, and numpy arrays.
+* [L11](python/L11): Exploring tuples, sets, and numpy arrays.
+* [L11](python/L11): Exploring tuples, sets, and numpy arrays.
+
 
 
 **Getting Started**
