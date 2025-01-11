@@ -38,8 +38,6 @@ for i in range(size):
     test1.append(N)
     test2.append(N)
 
-#print(test1) # unsorted
-#print(test2)
 
 # Test for insertion sort    
 timer1 = time.time()
@@ -47,7 +45,6 @@ insertionSort(test1)
 timer2 = time.time()
 duration = timer2 - timer1
 print(f"Insertion sort took {duration:.2f} seconds")
-#print(test1)
 
 # Test for quicksort    
 timer1 = time.time()
@@ -55,7 +52,6 @@ out = quicksort(test2)
 timer2 = time.time()
 duration = timer2 - timer1
 print(f"Quicksort took {duration:.2f} seconds")
-#print(out)
 
 
 
