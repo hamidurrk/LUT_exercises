@@ -1,0 +1,8 @@
+sum 2 + 8 = 10
+subtract 2 - 8 = -6
+multiply 2 * 8 = 16
+division 2 / 8 = 0.25
+sum 1 + 3 = 4
+subtract 1 - 3 = -2
+multiply 2 * 2 = 4
+division 2 / 2 = 1.0
