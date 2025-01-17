@@ -42,14 +42,14 @@ def test_and_plot(func, iter):
     plt.show()
 
 def main(SHOW_TIME = False, print_tree = True):
-    n = 30
+    n = 4
     time_start = time.time()
     f_num = fibonacci(n, print_tree=print_tree)
     time_end = time.time()
     print(f"Fibonacci number at position {n}: {f_num}")
     print(f"Time taken for recursive approach: {time_end - time_start:.10f} seconds") if SHOW_TIME else None
     
-    test_and_plot(fibonacci, 35)
+    # test_and_plot(fibonacci, 35)
     
 main(SHOW_TIME = True)
 
