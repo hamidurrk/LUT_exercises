@@ -18,8 +18,8 @@ This repository contains the programming exercises of my university lectures.
 * [L9](python/L9): Working with exception handling.
 * [L10](python/L10): Introduction to dictionaries, csv, json and working with modules.
 * [L11](python/L11): Exploring tuples, sets, and numpy arrays.
-* [L11](python/L12): Implemented directional graphs for Rock-Paper-Scissors-Lizard-Spock, and practiced API calling.
-* [L11](python/L13): Introduction to recursion, and sorting algorithms.
+* [L12](python/L12): Implemented directional graphs for Rock-Paper-Scissors-Lizard-Spock, and practiced API calling.
+* [L13](python/L13): Introduction to recursion, various recursive approaches and sorting algorithms.
 
 
 
