@@ -21,6 +21,12 @@ This repository contains the programming exercises of my university lectures.
 * [L12](python/L12): Implemented directional graphs for Rock-Paper-Scissors-Lizard-Spock, and practiced API calling.
 * [L13](python/L13): Introduction to recursion, various recursive approaches and sorting algorithms.
 
+**[DBMS](dbms) Exercises** _(Course: Database Management Systems)_
+
+* [Exercise 1](dbms/exercise_1): draw.io backup of the designed database ERD.
+* [Exercise 2](dbms/exercise_2): Relational models for exercise 1 and SQL introduction.
+* [Exercise 3](dbms/exercise_3): Various SQL queries and database operations.
+* [Exercise 5](dbms/exercise_5): Advanced SQL queries, transactions, and Python integration.
 
 
 **Getting Started**

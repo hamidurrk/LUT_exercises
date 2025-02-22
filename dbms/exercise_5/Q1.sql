@@ -1,3 +1,26 @@
+-- Answer to the question 1 of the exercise 5
+
+BEGIN TRANSACTION;
+
+UPDATE PRODUCT
+    SET PROD_QOH = PROD_QOH + 1
+    WHERE PROD_CODE = 'ABC';
+
+UPDATE PART
+    SET PART_QOH = PART_QOH - 1
+    WHERE PART_CODE = 'A';
+
+UPDATE PART
+    SET PART_QOH = PART_QOH - 1
+    WHERE PART_CODE = 'B';
+
+UPDATE PART
+    SET PART_QOH = PART_QOH - 1
+    WHERE PART_CODE = 'C';
+
+COMMIT;
+
+-- Shorter alternative version of the transaction
 BEGIN TRANSACTION;
 
 UPDATE PRODUCT
