@@ -2,7 +2,6 @@ from urllib.request import urlopen
 import json
 import requests
 
-
 url = "https://api.spacexdata.com/v5/launches/5eb87d46ffd86e000604b388"
 
 def fetch_data(url):
@@ -30,10 +29,3 @@ def get_filtered_characters(limit, **kwargs):
 
 data = fetch_data(url)
 print(json.dumps(data, indent=4))
-# print(data[0].keys())
-# crewed_missions = []
-# for launch in data:
-#     if launch["crew"]:
-#         crewed_missions.append(launch)
-
-# print(json.dumps(crewed_missions, indent=4))

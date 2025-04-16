@@ -7,11 +7,10 @@ third_number = float(input("Enter the third number:\n"))
 sum = first_number + second_number + third_number
 
 average = sum / 3
-average_rounded_to_three_decimal_places = round(average, 3) # Round to 3 decimal places
-average_rounded_to_closest_int = round(average) # Round to the closest integer
-average_without_decimal = int(average)  # Remove the decimal part
+average_rounded_to_three_decimal_places = round(average, 3) 
+average_rounded_to_closest_int = round(average) 
+average_without_decimal = int(average)  
 
-# Print all outputs
 print(f"Sum of the numbers: {sum}")
 print(f"Average of the numbers (rounded to 3 decimal places): {average_rounded_to_three_decimal_places}")
 print(f"Average of the numbers (rounded to the closest integer): {average_rounded_to_closest_int}")

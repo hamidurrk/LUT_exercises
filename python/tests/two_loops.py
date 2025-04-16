@@ -3,7 +3,7 @@ import time
 n = 10000
 k = 0
 
-start_time = time.time()   # Current time in seconds since the epoch
+start_time = time.time()   
 
 for i in range(n):
     for j in range(n):
