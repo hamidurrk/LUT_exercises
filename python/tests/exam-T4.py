@@ -1,20 +1,19 @@
-import time
 dict = {}
 
 string = "1 2 3 a b aa bb 4 3 2 1 8 a"
 
-list = string.split()
-print(list)
-for item in list:
-    if item in dict:
-        dict[item] += 1
-    else:
-        dict[item] = 1
-print(dict)
+def converter(string:str):
+    list = string.split()
+    for item in list:
+        if item in dict:
+            dict[item] += 1
+        else:
+            dict[item] = 1
 
-output = []
-for key, value in dict.items():
-    if value == 1:
-        output.append(key)
+    output = []
+    for key, value in dict.items():
+        if value == 1:
+            output.append(key)
+    return output
 
-print(output)
+print(converter(string))
