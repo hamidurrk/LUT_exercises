@@ -74,6 +74,21 @@ class LinkedList:
             if i == idx:
                 return curr_node.value
         return None
+    
+    def isort(self):
+        if self.len <= 1:
+            return  
+        
+        for i in range(1, self.len):
+            current_value = self.get_value(i)
+            
+            j = i - 1
+            while j >= 0 and self.get_value(j) > current_value:
+                j -= 1
+            
+            if j + 1 != i:
+                self.delete(i)
+                self.insert(current_value, j + 1)
 
     def print(self):
         curr_node = self.head
@@ -92,9 +107,5 @@ if __name__ == "__main__":
     for num in (3, 5, 2, 7, 8, 10, 6):
         L.append(num)
     L.print()
-    print(L.index(7))   
-    print(L.index(9))      
-    L.swap(1, 4)
-    L.print()
-    L.swap(2, 0)
+    L.isort()
     L.print()
