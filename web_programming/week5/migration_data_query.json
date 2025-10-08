@@ -1,0 +1,42 @@
+{
+  "query": [
+    {
+      "code": "Alue",
+      "selection": {
+        "filter": "item",
+        "values": []
+      }
+    },
+    {
+      "code": "Vuosi",
+      "selection": {
+        "filter": "item",
+        "values": []
+      }
+    },
+    {
+      "code": "Sukupuoli",
+      "selection": {
+        "filter": "item",
+        "values": ["SSS"]
+      }
+    },
+    {
+      "code": "Ikä",
+      "selection": {
+        "filter": "item",
+        "values": ["SSS"]
+      }
+    },
+    {
+      "code": "Tiedot",
+      "selection": {
+        "filter": "item",
+        "values": ["vm43_tulo", "vm43_lahto"]
+      }
+    }
+  ],
+  "response": {
+    "format": "JSON-STAT2"
+  }
+}
