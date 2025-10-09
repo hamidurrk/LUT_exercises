@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections import deque
 from dataclasses import dataclass
 from typing import Optional
 
@@ -78,6 +79,46 @@ class BST:
         if self.root is not None:
             print()
 
+    def postorder(self) -> None:
+
+        def _postorder(node: Optional[Node]) -> None:
+            if node is None:
+                return
+            _postorder(node.left)
+            _postorder(node.right)
+            print(node.key, end=" ")
+
+        _postorder(self.root)
+        if self.root is not None:
+            print()
+
+    def inorder(self) -> None:
+
+        def _inorder(node: Optional[Node]) -> None:
+            if node is None:
+                return
+            _inorder(node.left)
+            print(node.key, end=" ")
+            _inorder(node.right)
+
+        _inorder(self.root)
+        if self.root is not None:
+            print()
+
+    def breadthfirst(self) -> None:
+        if self.root is None:
+            return
+
+        queue: deque[Node] = deque([self.root])
+        while queue:
+            node = queue.popleft()
+            print(node.key, end=" ")
+            if node.left is not None:
+                queue.append(node.left)
+            if node.right is not None:
+                queue.append(node.right)
+        print()
+
 
 if __name__ == "__main__":
     Tree = BST()
@@ -85,15 +126,7 @@ if __name__ == "__main__":
 
     for key in keys:
         Tree.insert(key)
-
-    Tree.preorder()
-
-    print(Tree.search(6))
-    print(Tree.search(8))
-
-    Tree.remove(1)
-    Tree.preorder()
-    Tree.remove(9)
-    Tree.preorder()
-    Tree.remove(3)
-    Tree.preorder()
+   
+    Tree.postorder()
+    Tree.inorder()
+    Tree.breadthfirst()
