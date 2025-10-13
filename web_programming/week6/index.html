@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population Growth in Finland</title>
+    <script src="https://unpkg.com/frappe-charts@latest/dist/frappe-charts.min.umd.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Population Growth in Finnish Municipalities</h1>
+
+    <div id="chart"></div>
+
+    <form id="municipality-form">
+        <label for="input-area">Enter Municipality:</label>
+        <input type="text" id="input-area" placeholder="e.g., Helsinki">
+        <button type="button" id="submit-data">Search</button>
+    </form>
+
+    <button id="add-data">Add Prediction</button>
+
+    <nav>
+        <a href="newchart.html" id="navigation">View Births & Deaths</a>
+    </nav>
+
+    <script src="main.js"></script>
+</body>
+</html>
