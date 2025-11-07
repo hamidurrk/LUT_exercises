@@ -2,10 +2,10 @@
 
 This repository contains the programming exercises of my university lectures. 
 
-**Table of Contents**
+## **Table of Contents**
 -----------------
 
-**[Python](python) Exercises** _(Course: Fundamentals of Programming)_ 
+### **[Python](python) Exercises** _(Course: Fundamentals of Programming)_ 
 
 * [L1](python/L1): Introduction to Python programming basics, including data types and variables.
 * [L2](python/L2): Working with strings and printing in Python.
@@ -21,12 +21,27 @@ This repository contains the programming exercises of my university lectures.
 * [L12](python/L12): Implemented directional graphs for Rock-Paper-Scissors-Lizard-Spock, and practiced API calling.
 * [L13](python/L13): Introduction to recursion, various recursive approaches and sorting algorithms.
 
-**[DBMS](dbms) Exercises** _(Course: Database Management Systems)_
+* [Practice Exams](python/practice_exam): Contains sample exam tasks and solutions for each lecture (L1-L13).
+* [Recursion Practice](python/L13/recursion_practice): Additional recursive problems and solutions.
+* [Tests](python/tests): Various test scripts and data files for validation and practice.
+* [PDFs](python/pdf): Task sheets and instructions for each lecture.
+* [Files](python/L7/files), [L9/files], [L10/files]: Input/output files for exercises.
 
-* [Exercise 1](dbms/exercise_1): draw.io backup of the designed database ERD.
-* [Exercise 2](dbms/exercise_2): Relational models for exercise 1 and SQL introduction.
-* [Exercise 3](dbms/exercise_3): Various SQL queries and database operations.
-* [Exercise 5](dbms/exercise_5): Advanced SQL queries, transactions, and Python integration.
+### **[Data Structures and Algorithms](data_structures_and_algorithms)**
+* [Week 1-6](data_structures_and_algorithms): Sorting, prime numbers, triangle calculations, bit manipulation, hash tables, binary trees, AVL trees, heaps, and linked lists.
+
+### **[Web Programming](web_programming)**
+* [Week 2-6](web_programming): HTML, JavaScript, CSS, interactive forms, Leaflet map visualizations, migration data, and more.
+
+### **[DBMS](dbms) Exercises** _(DBMS Courses)_
+[BoDS](dbms/BoDS) Exercises _(Course: Basics of Database Systems)_
+
+ * [Exercise 1](dbms/BoDS/exercise_1): draw.io backup of the designed database ERD.
+ * [Exercise 2](dbms/BoDS/exercise_2): Relational models for exercise 1 and SQL introduction.
+ * [Exercise 3](dbms/BoDS/exercise_3): Various SQL queries and database operations.
+ * [Exercise 5](dbms/BoDS/exercise_5): Advanced SQL queries, transactions, and Python integration.
+
+[Database Systems Management](dbms/database_systems_management): SQL scripts for advanced management tasks (exercises 2-6).
 
 
 **Getting Started**
