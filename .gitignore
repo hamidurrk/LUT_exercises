@@ -2,3 +2,4 @@
 *.zip
 /heat_transfer_experiment/data
 *output
+*.exe
