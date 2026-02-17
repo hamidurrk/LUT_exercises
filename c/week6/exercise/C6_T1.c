@@ -4,7 +4,7 @@
 int main() {
     char *line = NULL;
     size_t len = 0;
-    ssize_t nread;
+    size_t nread;
     
     printf("Welcome to the Echo Machine! (Press Ctrl+D to finish)\n");
     
