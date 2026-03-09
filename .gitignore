@@ -3,3 +3,5 @@
 /heat_transfer_experiment/data
 *output
 *.exe
+*.o
+# *.a
