@@ -39,7 +39,34 @@ void insert(DLL *list, Node *newNode) {
     }
 }
 
-void displayList(DLL *list) {
+Node *search(DLL *L, char *key) {
+    Node *cur = L->head;
+
+    while (cur != NULL) {
+        if (strcmp(cur->data, key) == 0) {
+            return cur;
+        }
+        cur = cur->next;
+    }
+
+    return NULL;
+}
+
+void Remove(DLL *L, Node *ptr) {
+    if (ptr->prev != NULL) {
+        ptr->prev->next = ptr->next;
+    } else {
+        L->head = ptr->next;
+    }
+
+    if (ptr->next != NULL) {
+        ptr->next->prev = ptr->prev;
+    }
+
+    free(ptr);
+}
+
+void displayList(DLL *list, char startChar) {
     printf("List: ");
 
     if (listEmpty(list)) {
@@ -47,11 +74,83 @@ void displayList(DLL *list) {
         return;
     }
 
-    for (Node *cur = list->head; cur != NULL; cur = cur->next) {
-        printNode(cur);
-        if (cur->next != NULL) {
-            printf(" <-> ");
+    Node *cur = list->head;
+    int firstPrinted = 1;
+
+    while (cur != NULL) {
+        if (cur->data[0] == startChar) {
+            if (!firstPrinted) {
+                printf(" <-> ");
+            }
+            printNode(cur);
+            firstPrinted = 0;
         }
+        cur = cur->next;
     }
+
     printf("\n");
+}
+
+void loadTextFile(DLL *L, char *filename) {
+    FILE *f = fopen(filename, "r");
+    char line[100];
+
+    if (f == NULL) {
+        printf("Could not open file.\n");
+        return;
+    }
+
+    while (fgets(line, sizeof(line), f) != NULL) {
+        int i = 0;
+        while (line[i] != '\0') {
+            if (line[i] == '\n') {
+                line[i] = '\0';
+                break;
+            }
+            i++;
+        }
+
+        Node *n = createNode(line);
+        insert(L, n);
+    }
+
+    fclose(f);
+}
+
+void storeTextFile(DLL *L, char *filename) {
+    FILE *f = fopen(filename, "w");
+
+    if (f == NULL) {
+        printf("Could not open file.\n");
+        return;
+    }
+
+    if (listEmpty(L)) {
+        fclose(f);
+        return;
+    }
+
+    Node *cur = L->head;
+    while (cur->next != NULL) {
+        cur = cur->next;
+    }
+
+    while (cur != NULL) {
+        fprintf(f, "%s\n", cur->data);
+        cur = cur->prev;
+    }
+
+    fclose(f);
+}
+
+void freeList(DLL *L) {
+    Node *cur = L->head;
+
+    while (cur != NULL) {
+        Node *nextNode = cur->next;
+        free(cur);
+        cur = nextNode;
+    }
+
+    free(L);
 }

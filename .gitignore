@@ -5,3 +5,5 @@
 *.exe
 *.o
 # *.a
+/c/Fabiha
+/c/sprint1/*.txt

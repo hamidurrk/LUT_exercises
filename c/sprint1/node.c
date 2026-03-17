@@ -28,7 +28,7 @@ Node* createNode(const char *key) {
 
 void printNode(Node *nodePtr) {
     if (nodePtr == NULL) {
-        printf("NULL node.");
+        printf("The node is NULL.");
         return;
     }
     printf("[%s]", nodePtr->data);

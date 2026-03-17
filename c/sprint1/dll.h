@@ -10,6 +10,11 @@ typedef struct {
 DLL* createList();
 int listEmpty(DLL *list);
 void insert(DLL *list, Node *newNode);
-void displayList(DLL *list);
+Node *search(DLL *L, char *key);
+void Remove(DLL *L, Node *ptr);
+void displayList(DLL *list, char startChar);
+void loadTextFile(DLL *L, char *filename);
+void storeTextFile(DLL *L, char *filename);
+void freeList(DLL *L);
 
 #endif
