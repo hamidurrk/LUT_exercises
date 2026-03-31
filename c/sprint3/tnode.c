@@ -53,23 +53,46 @@ void printTNode(TNode *nodePtr)
     }
 }
 
-void inOrder(TNode *node)
+void inOrderFiltered(TNode *node, char startChar)
 {
-    TNode *leftSide;
-    TNode *rightSide;
-
     if (node != NULL) {
-        leftSide = node->left;
-        rightSide = node->right;
-
-        if (leftSide != NULL) {
-            inOrder(leftSide);
+        if (node->left != NULL) {
+            inOrderFiltered(node->left, startChar);
         }
 
-        printTNode(node);
-
-        if (rightSide != NULL) {
-            inOrder(rightSide);
+        if (node->data[0] == startChar) {
+            printTNode(node);
         }
+
+        if (node->right != NULL) {
+            inOrderFiltered(node->right, startChar);
+        }
+    }
+}
+
+void writePreOrder(TNode *node, FILE *fp)
+{
+    if (node != NULL && fp != NULL) {
+        fprintf(fp, "%s\n", node->data);
+
+        if (node->left != NULL) {
+            writePreOrder(node->left, fp);
+        }
+        if (node->right != NULL) {
+            writePreOrder(node->right, fp);
+        }
+    }
+}
+
+void freeNodes(TNode *node)
+{
+    if (node != NULL) {
+        if (node->left != NULL) {
+            freeNodes(node->left);
+        }
+        if (node->right != NULL) {
+            freeNodes(node->right);
+        }
+        free(node);
     }
 }

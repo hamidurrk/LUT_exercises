@@ -4,19 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-static void freeNodes(TNode *node)
-{
-    if (node != NULL) {
-        if (node->left != NULL) {
-            freeNodes(node->left);
-        }
-        if (node->right != NULL) {
-            freeNodes(node->right);
-        }
-        free(node);
-    }
-}
-
 BST *createTree(void)
 {
     BST *x;
@@ -89,7 +76,7 @@ void bstInsert(BST *tree, TNode *newNode)
     }
 }
 
-void printAlphabetical(BST *tree)
+void printAlphabetical(BST *tree, char startChar)
 {
     int empty;
 
@@ -98,9 +85,156 @@ void printAlphabetical(BST *tree)
         printf("Tree is empty.\n");
     } else {
         printf("Tree: ");
-        inOrder(tree->root);
+        inOrderFiltered(tree->root, startChar);
         printf("\n");
     }
+}
+
+TNode *Tsearch(BST *tree, char *key)
+{
+    TNode *p;
+
+    if (tree == NULL || key == NULL) {
+        return NULL;
+    }
+
+    p = tree->root;
+    while (p != NULL) {
+        int comp;
+
+        comp = strcmp(key, p->data);
+        if (comp == 0) {
+            return p;
+        }
+        if (comp < 0) {
+            p = p->left;
+        } else {
+            p = p->right;
+        }
+    }
+
+    return NULL;
+}
+
+void TRemove(BST *tree, char *key)
+{
+    TNode *parent;
+    TNode *curr;
+
+    if (tree == NULL || key == NULL) {
+        printf("Value not found\n");
+        return;
+    }
+
+    parent = NULL;
+    curr = tree->root;
+
+    while (curr != NULL && strcmp(key, curr->data) != 0) {
+        parent = curr;
+        if (strcmp(key, curr->data) < 0) {
+            curr = curr->left;
+        } else {
+            curr = curr->right;
+        }
+    }
+
+    if (curr == NULL) {
+        printf("Value not found\n");
+        return;
+    }
+
+    if (curr->left != NULL && curr->right != NULL) {
+        TNode *succParent;
+        TNode *succ;
+
+        succParent = curr;
+        succ = curr->right;
+
+        while (succ->left != NULL) {
+            succParent = succ;
+            succ = succ->left;
+        }
+
+        strcpy(curr->data, succ->data);
+        parent = succParent;
+        curr = succ;
+    }
+
+    {
+        TNode *child;
+
+        if (curr->left != NULL) {
+            child = curr->left;
+        } else {
+            child = curr->right;
+        }
+
+        if (parent == NULL) {
+            tree->root = child;
+        } else {
+            if (parent->left == curr) {
+                parent->left = child;
+            } else {
+                parent->right = child;
+            }
+        }
+
+        printf("The node at address %p is deleted\n", (void *)curr);
+        free(curr);
+    }
+}
+
+void TloadTextFile(BST *tree, char *filename)
+{
+    FILE *fp;
+    char word[256];
+
+    if (tree == NULL || filename == NULL) {
+        return;
+    }
+
+    fp = fopen(filename, "r");
+    if (fp == NULL) {
+        printf("Could not open file.\n");
+        return;
+    }
+
+    while (fgets(word, sizeof(word), fp) != NULL) {
+        char *nl;
+        TNode *n;
+
+        nl = strchr(word, '\n');
+        if (nl != NULL) {
+            *nl = '\0';
+        }
+
+        if (word[0] != '\0') {
+            n = createTNode(word);
+            if (n != NULL) {
+                bstInsert(tree, n);
+            }
+        }
+    }
+
+    fclose(fp);
+}
+
+void TstoreTextFile(BST *tree, char *filename)
+{
+    FILE *fp;
+
+    if (tree == NULL || filename == NULL) {
+        return;
+    }
+
+    fp = fopen(filename, "w");
+    if (fp == NULL) {
+        printf("Could not open file.\n");
+        return;
+    }
+
+    writePreOrder(tree->root, fp);
+    fclose(fp);
 }
 
 void freeTree(BST *tree)
